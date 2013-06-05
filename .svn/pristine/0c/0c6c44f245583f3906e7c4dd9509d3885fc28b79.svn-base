@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_show_messages"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Messages"/>
+    <item
+        android:id="@+id/action_logout"
+         android:showAsAction="always"
+        android:title="LogoutYo">
+    </item>
+
+</menu> 

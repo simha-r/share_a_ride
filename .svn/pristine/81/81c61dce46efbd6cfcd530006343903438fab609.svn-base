@@ -1,0 +1,46 @@
+package com.example.locationbased;
+
+import java.util.Map;
+
+import android.app.Application;
+import android.app.Notification;
+
+import com.urbanairship.AirshipConfigOptions;
+import com.urbanairship.UAirship;
+import com.urbanairship.push.BasicPushNotificationBuilder;
+import com.urbanairship.push.PushManager;
+
+public class MyApplication extends Application {
+
+    @Override
+    public void onCreate() {
+
+        super.onCreate();
+
+        AirshipConfigOptions options = AirshipConfigOptions.loadDefaultOptions(this);
+       UAirship.takeOff(this, options);
+       PushManager.enablePush();
+ 
+        // customize the sound played when a push is received
+        //nb.soundUri = Uri.parse("android.resource://"+this.getPackageName()+"/" +R.raw.cat);
+       BasicPushNotificationBuilder nb = new BasicPushNotificationBuilder() {
+    	    @Override
+    	    public Notification buildNotification(String alert,
+    	            Map<String, String> extras) {
+    	        Notification notification = super.buildNotification(alert,
+    	                extras);
+    	        // The icon displayed in the status bar
+    	        notification.icon = R.drawable.icon;
+    	        // The icon displayed within the notification content
+    	        notification.contentView.setImageViewResource(
+    	                android.R.id.icon, R.drawable.icon);
+    	        return notification;
+    	    }
+    	};
+    	// Set the custom notification builder
+    	PushManager.shared().setNotificationBuilder(nb);
+
+        PushManager.shared().setIntentReceiver(IntentReceiver.class);
+
+    }
+}

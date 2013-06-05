@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="14dp"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/sourceField"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/text1"
+        android:layout_below="@+id/text1"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Source" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/destinationField"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/sourceField"
+        android:layout_below="@+id/sourceField"
+        android:layout_marginTop="38dp"
+        android:ems="10"
+        android:hint="Where To ?" />
+
+    <Button
+        android:id="@+id/buttonCurrentLocation"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/destinationField"
+        android:layout_toRightOf="@+id/sourceField"
+        android:text="Use Current Location" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/destinationField"
+        android:layout_below="@+id/destinationField"
+        android:layout_marginTop="43dp"
+        android:text="Button" />
+
+     <com.google.android.maps.MapView
+         android:id="@+id/map1"
+         android:layout_width="fill_parent"
+         android:layout_height="100dp"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:apiKey="0GUZNGiKjpA5QxwOWElD-tcW3G6bpN6G6J1oSCg"
+         android:clickable="true" >
+     </com.google.android.maps.MapView>
+
+     <Button
+         android:id="@+id/buttonLogout"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"
+         android:text="Logout" />
+
+</RelativeLayout>

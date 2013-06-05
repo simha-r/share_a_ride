@@ -1,0 +1,15 @@
+developmentAppKey = 9t5cYYFFREi4eim57iS9Tg
+developmentAppSecret = tf4_nprIQ8eI6PFVr4llrg 
+#productionAppKey = Your Production App Key
+#productionAppSecret = Your Production Secret
+
+#transport is "gcm" or "helium".
+transport = gcm
+
+gcmSender = 483156390884
+inProduction = false
+
+# 2 = Log.VERBOSE; 3 = Log.DEBUG; 4 = Log.INFO;
+# 5 = Log.WARN; 6 = Log.ERROR; 7 = Log.ASSERT;
+developmentLogLevel = 3
+productionLogLevel = 6

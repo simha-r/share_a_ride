@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+   >
+
+     <com.google.android.maps.MapView
+         android:id="@+id/map1"
+         android:layout_width="fill_parent"
+         android:layout_height="100dp"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:apiKey="0GUZNGiKjpA5QxwOWElD-tcW3G6bpN6G6J1oSCg"
+         android:clickable="true" >
+     </com.google.android.maps.MapView>
+
+     <Button
+         android:id="@+id/buttonLogout"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"
+         android:text="Logout" />
+
+     <Button
+         android:id="@+id/buttonCurrentLocation"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/buttonLogout"
+         android:layout_alignTop="@+id/sourceField"
+         android:text="Use Current Location"
+         android:textSize="13dp" />
+
+     <EditText
+         android:id="@+id/sourceField"
+         android:layout_width="wrap_content"
+         android:layout_height="50dp"
+         android:layout_alignLeft="@+id/displayName"
+         android:layout_below="@+id/textView1"
+         android:layout_marginTop="46dp"
+         android:layout_toLeftOf="@+id/buttonCurrentLocation"
+         android:hint="Source"
+         />
+
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/buttonLogout"
+         android:layout_marginTop="34dp"
+         android:text="You are at  " />
+
+     <TextView
+         android:id="@+id/text1"
+         android:layout_width="200dp"
+         android:layout_height="50dp"
+         android:layout_alignBaseline="@+id/textView1"
+         android:layout_alignBottom="@+id/textView1"
+         android:layout_alignParentRight="true"
+         android:layout_marginLeft="30dp"
+         android:layout_toRightOf="@+id/textView1"
+         android:text="TextView"
+          />
+
+     <EditText
+         android:id="@+id/destinationField"
+         android:layout_width="wrap_content"
+         android:layout_height="50dp"
+         android:layout_alignLeft="@+id/sourceField"
+         android:layout_below="@+id/sourceField"
+         android:layout_centerVertical="true"
+         android:layout_marginTop="18dp"
+         android:layout_toLeftOf="@+id/buttonCurrentLocation"
+         android:ems="10"
+         android:hint="Where To "
+          >
+
+         <requestFocus />
+     </EditText>
+
+     <TextView
+         android:id="@+id/displayName"
+         android:layout_width="wrap_content"
+         android:layout_height="20dp"
+         android:layout_alignBottom="@+id/buttonLogout"
+         android:layout_alignParentLeft="true"
+         android:layout_marginLeft="18dp"
+         android:text="TextView"
+         android:textSize="20dp" />
+
+     <Button
+         android:id="@+id/buttonSubmit"
+         android:layout_width="wrap_content"
+         android:layout_height="50dp"
+         android:layout_below="@+id/destinationField"
+         android:layout_marginTop="20dp"
+         android:layout_toRightOf="@+id/textView1"
+         android:text="Find Me a Ride !!" />
+
+</RelativeLayout>

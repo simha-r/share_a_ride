@@ -1,0 +1,77 @@
+package com.example.locationbased;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class ChatData {
+	
+	public static final String TAG="ChatData";
+	public static final String DB_NAME="alldata.db";
+	public static final int DB_VERSION=1;
+	public static final String TABLE_NAME="chatdata";
+	public static final String EMAIL_ID="email_id";
+	public static final String FIRST_NAME="first_name";
+	public static final String MESSAGE_TEXT="message_text";
+	public static final String TIME_OF_MESSAGE="time_of_message";
+	
+	Context context;
+	DBHelper dbHelper;
+	SQLiteDatabase db;
+	
+	public ChatData(Context context)
+	{
+		this.context=context;
+		dbHelper=new DBHelper();
+	}
+	
+	
+	public void insert(String emailId,String firstName,String messageText,String timeOfMessage)
+	{
+		db=dbHelper.getWritableDatabase();
+		
+		ContentValues values =new ContentValues();
+		values.put(EMAIL_ID, emailId);
+		values.put(FIRST_NAME,firstName);
+		values.put(MESSAGE_TEXT,messageText);
+		values.put(TIME_OF_MESSAGE,timeOfMessage);
+		db.insertWithOnConflict(TABLE_NAME, null, values,SQLiteDatabase.CONFLICT_IGNORE);
+		
+	}
+	
+	
+	
+	class DBHelper extends SQLiteOpenHelper
+	{
+
+		public DBHelper() {
+			super(context, DB_NAME, null, DB_VERSION);
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public void onCreate(SQLiteDatabase db) {
+			
+			String sql="Create table "+DB_NAME+"("+EMAIL_ID+" text, "+FIRST_NAME+" text ,"+MESSAGE_TEXT+" text ,"+TIME_OF_MESSAGE+" text )";
+			db.execSQL(sql);
+			
+		}
+
+		@Override
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+			
+			db.execSQL("Drop if exists "+DB_NAME);
+			onCreate(db);
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}

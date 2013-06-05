@@ -1,0 +1,16 @@
+package com.example.locationbased;
+
+import android.content.Context;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+
+public class PassengerAdapter extends ArrayAdapter {
+
+	int resource;
+
+	public PassengerAdapter(Context context, int textViewResourceId) {
+		super(context, textViewResourceId);
+		resource = textViewResourceId;
+	}
+
+}
